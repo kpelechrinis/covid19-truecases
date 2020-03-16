@@ -1,4 +1,4 @@
-covid19_trucases <- function(start_date = "2020/1/1", B = 1000, laplace = c(0,0.02), file = "us_deaths.csv", death_days = 24, death_days_sd = 6, cft_bound = c(0.008,0.012),days_to_double = 6){
+covid19_trucases <- function(start_date = "2020/1/1", B = 1000, laplace = c(0,0.02), file = "us_deaths.csv", death_days = 24, death_days_sd = 4, cft_bound = c(0.008,0.012),days_to_double = 6){
 
 # start_date: how back in time you want to explore -- depends on the case of first death in each country
 # B: number of simulations
