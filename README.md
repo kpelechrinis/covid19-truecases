@@ -1,3 +1,5 @@
+<B>DISCLAIMER:</B> This repository is not meant to provide public health policy recommendations. It is more educational than anything else. 
+
 In this repository I will attempt to take a simulation approach on a method outlined by Trevor Bedford and picked up by Steve Illardi:
 
 <img src="tweet.png" width = "250">
