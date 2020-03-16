@@ -15,3 +15,8 @@ I took a purely simulation approach, based on the death cases, outlined as follo
 Data on the death cases are obtained from <a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins database</a>.
 
 You can use the ```R``` function ```total_cases()``` to obtain the simulation results. 
+
+For example, using the data for US up to 03/15/2020, the following is the distribution of true cases in the whole US based on the above simulation method: 
+
+<img src="us_cases_31520.png" width = "250">
+
