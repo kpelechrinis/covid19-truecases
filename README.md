@@ -13,3 +13,5 @@ I took a purely simulation approach, based on the death cases, outlined as follo
 * <B>Get an estimate of total cases today: </B> For this step one needs to consider the amount of days it takes for the cases to double. This will be small at the beginning of an outbreak, and most probably larger as measures are put in place (or large fraction of the population is already infected). We set as default 6 days for doubling the cases.
 
 Data on the death cases are obtained from <a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins database</a>.
+
+You can use the ```R``` function ```total_cases()``` to obtain the simulation results. 
