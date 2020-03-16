@@ -16,7 +16,7 @@ Data on the death cases are obtained from <a href="https://github.com/CSSEGISand
 
 You can use the ```R``` function ```total_cases()``` to obtain the simulation results. 
 
-For example, using the data for US up to 03/15/2020, the following is the distribution of true cases in the whole US based on the above simulation method: 
+For example, using the data for US up to 03/15/2020, the following is the distribution of true cases in the whole US based on the above simulation method (B=10000): 
 
 <img src="us_cases_31520.png" width = "250">
 
