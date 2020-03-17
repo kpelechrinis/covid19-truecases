@@ -1,4 +1,4 @@
-<B>DISCLAIMER:</B> This repository is not meant to provide public health policy recommendations. It is more educational than anything else. 
+<B>DISCLAIMER:</B> This repository is not meant to provide public health policy recommendations. It is more educational than anything else. Also any improvement in the simulation is welcomed and appreciated! We are all in this together!
 
 In this repository I will attempt to take a simulation approach on a method outlined by Trevor Bedford and picked up by Steve Illardi:
 
