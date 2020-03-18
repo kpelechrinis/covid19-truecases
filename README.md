@@ -18,5 +18,7 @@ You can use the ```R``` function ```covid19_trucases()``` to obtain the simulati
 
 For example, using the data for US up to 03/16/2020, the following is the distribution of true cases in the whole US based on the above simulation method (B=10000): 
 
-<img src="us_cases_31620.png" width = "450">
+<img src="plots/us_cases_31620.png" width = "450">
+
+For the latest estimates you can look at the directory ```plots```. 
 
