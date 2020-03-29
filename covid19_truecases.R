@@ -1,6 +1,7 @@
-covid19_trucases <- function(start_date = "2020/1/1", B = 1000, laplace = c(0,0.02), file = "us_deaths.csv", death_days = 24, death_days_sd = 4, cft_bound = c(0.008,0.012),days_to_double = 5.5){
+covid19_trucases <- function(start_date = "2020/1/1", end_date = "2020/12/31", B = 1000, laplace = c(0,0.02), file = "us_deaths.csv", death_days = 24, death_days_sd = 4, cft_bound = c(0.008,0.012),days_to_double = 5.5){
 
 # start_date: how back in time you want to explore -- depends on the case of first death in each country
+# end_date: the as-of date for the simulations -- allows for historical analysis (i.e. "what should we have believed on day X")
 # B: number of simulations
 # laplace: the Laplace smoothing parameters. A number between the two limits is picked uniformly at random and this is the number of confirmed contractions assumed for days with 0 contractions otherwise
 # file: the file that has the death counts (see provided file for format)
@@ -12,8 +13,10 @@ covid19_trucases <- function(start_date = "2020/1/1", B = 1000, laplace = c(0,0.
 sims = rep(0,B)
 
 for (s in 1:B){
-    us_deaths <- read.csv(file)
-    us_deaths$Day = as.Date(us_deaths$Day,format="%m/%d/%y")
+    us_deaths_raw <- read.csv(file)
+    us_deaths_raw$Day = as.Date(us_deaths_raw$Day,format="%m/%d/%y")
+
+    us_deaths <- subset(us_deaths_raw, Day <= end_date)
 
     contraction = data.frame(Day = seq(as.Date("2020/1/1"), us_deaths[dim(us_deaths)[1],]$Day, "days"), D=rep(0,length(seq(as.Date(start_date), us_deaths[dim(us_deaths)[1],]$Day, "days"))))
 
