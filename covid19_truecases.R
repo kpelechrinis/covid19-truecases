@@ -1,4 +1,4 @@
-covid19_trucases <- function(start_date = "2020/1/1", end_date = "2020/12/31", B = 1000, laplace = c(0,0.02), file = "us_deaths.csv", death_days = 24, death_days_sd = 4, cft_bound = c(0.008,0.012),days_to_double = 5.5){
+covid19_trucases <- function(start_date = "2020/1/1", end_date = "2020/12/31", B = 1000, laplace = c(0,0.02), file = "us_deaths.csv", death_days = 24, death_days_sd = 4, ifr_bound = c(0.008,0.012),days_to_double = 5.5){
 
 # start_date: how back in time you want to explore -- depends on the case of first death in each country
 # end_date: the as-of date for the simulations -- allows for historical analysis (i.e. "what should we have believed on day X")
@@ -7,7 +7,7 @@ covid19_trucases <- function(start_date = "2020/1/1", end_date = "2020/12/31", B
 # file: the file that has the death counts (see provided file for format)
 # death_days: the average number of days between disease contraction and death
 # death_days_sd: the standard deviation of the above time
-# cft_bound: the bounds of the case fatality rate (cft is chosen uniformly at random from this range)
+# ifr_bound: the bounds of the infection fatality rate (ifr is chosen uniformly at random from this range)
 # days_to_double: days needed to double the number of cases (this depends on various factors - e.g., small for early in the process, large if appropriate measures are taken etc.)
 
 sims = rep(0,B)
@@ -32,11 +32,11 @@ for (s in 1:B){
         }
     }
 
-    cft = runif(1,cft_bound[1],cft_bound[2])
+    ifr = runif(1,ifr_bound[1],ifr_bound[2])
 
     # days with 0 confirmed contractions still have instances -- Laplace smoothing
     contraction[which(contraction$D == 0),]$D = runif(length(which(contraction$D == 0)), laplace[1], laplace[2])
-    contraction$C = contraction$D/cft
+    contraction$C = contraction$D/ifr
     contraction$Tot = cumsum(contraction$C)
     # find the day of the last "confirmed contraction"
     last_conf_cont = max(which(contraction$D > laplace[2]))
